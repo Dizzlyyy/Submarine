@@ -1,0 +1,4 @@
+# file: /Users/marianogodoy/dev/Submarine/probe_api/models/schemas.py
+# hypothesis_version: 6.151.9
+
+['down', 'left', 'right', 'up']

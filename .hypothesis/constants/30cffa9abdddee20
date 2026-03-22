@@ -1,0 +1,4 @@
+# file: /Users/marianogodoy/dev/Submarine/probe_api/components/intent_parser.py
+# hypothesis_version: 6.151.9
+
+[503, 'ambiguous', 'content', 'direction', 'down', 'gpt-4o-mini', 'left', 'right', 'role', 'system', 'unexpected schema', 'up', 'user']

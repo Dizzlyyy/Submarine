@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+openai
+pydantic
+pytest
+pytest-cov
+hypothesis
+httpx
+boto3
