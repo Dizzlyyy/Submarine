@@ -7,3 +7,4 @@ pytest-cov
 hypothesis
 httpx
 boto3
+opik

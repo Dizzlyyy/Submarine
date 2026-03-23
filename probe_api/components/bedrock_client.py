@@ -11,6 +11,12 @@ from __future__ import annotations
 
 import boto3
 
+try:
+    from opik.integrations.bedrock import track_bedrock as _track_bedrock
+    _OPIK_AVAILABLE = True
+except ImportError:
+    _OPIK_AVAILABLE = False
+
 
 class _Message:
     def __init__(self, content: str) -> None:
@@ -62,5 +68,8 @@ class BedrockClient:
     """Drop-in replacement for openai.OpenAI() for use with IntentParser."""
 
     def __init__(self, model_id: str = "amazon.nova-micro-v1:0", region: str = "us-east-1") -> None:
-        self._boto_client = boto3.client("bedrock-runtime", region_name=region)
+        boto_client = boto3.client("bedrock-runtime", region_name=region)
+        if _OPIK_AVAILABLE:
+            boto_client = _track_bedrock(boto_client)
+        self._boto_client = boto_client
         self.chat = _Chat(self._boto_client, model_id)
